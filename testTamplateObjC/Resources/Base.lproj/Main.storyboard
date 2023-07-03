@@ -35,30 +35,54 @@
                                                 <constraint firstAttribute="width" constant="40" id="IgV-tp-v1X"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qW0-mE-Qx0">
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zUa-eF-5EG">
                                             <rect key="frame" x="70" y="10" width="253" height="40"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqc-y5-rJy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="253" height="36"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="uXp-4d-XnI">
+                                                    <rect key="frame" x="0.0" y="36" width="253" height="4"/>
+                                                </progressView>
+                                            </subviews>
+                                        </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uYB-Bo-FNY">
+                                            <rect key="frame" x="323" y="0.0" width="70" height="60"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="ic_custom_dowload" imagePadding="0.0">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
+                                            </buttonConfiguration>
+                                            <connections>
+                                                <action selector="downloadButtonPressed:" destination="W6P-ce-Ae7" eventType="touchUpInside" id="uto-7E-YEP"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="qW0-mE-Qx0" firstAttribute="top" secondItem="mEJ-Ss-GMq" secondAttribute="top" constant="10" id="7Eg-VX-dXF"/>
+                                        <constraint firstItem="zUa-eF-5EG" firstAttribute="leading" secondItem="SH0-5h-fdH" secondAttribute="trailing" constant="15" id="3Rg-VT-rjW"/>
+                                        <constraint firstItem="uYB-Bo-FNY" firstAttribute="top" secondItem="mEJ-Ss-GMq" secondAttribute="top" id="658-Ls-obV"/>
                                         <constraint firstAttribute="trailing" secondItem="NAW-Zo-diw" secondAttribute="trailing" constant="15" id="8rS-R9-xXM"/>
                                         <constraint firstItem="SH0-5h-fdH" firstAttribute="leading" secondItem="mEJ-Ss-GMq" secondAttribute="leading" constant="15" id="Fpk-EP-x50"/>
-                                        <constraint firstItem="NAW-Zo-diw" firstAttribute="leading" secondItem="qW0-mE-Qx0" secondAttribute="trailing" constant="15" id="I1b-AO-UeO"/>
                                         <constraint firstItem="SH0-5h-fdH" firstAttribute="top" secondItem="mEJ-Ss-GMq" secondAttribute="top" constant="10" id="N2o-kX-0wt"/>
+                                        <constraint firstAttribute="trailing" secondItem="uYB-Bo-FNY" secondAttribute="trailing" id="PqC-Rg-WHC"/>
+                                        <constraint firstItem="zUa-eF-5EG" firstAttribute="top" secondItem="mEJ-Ss-GMq" secondAttribute="top" constant="10" id="ThW-JB-Xj2"/>
                                         <constraint firstItem="NAW-Zo-diw" firstAttribute="top" secondItem="mEJ-Ss-GMq" secondAttribute="top" constant="10" id="VLJ-cZ-Ra8"/>
-                                        <constraint firstAttribute="bottom" secondItem="qW0-mE-Qx0" secondAttribute="bottom" constant="10" id="YI0-Ca-SZx"/>
+                                        <constraint firstItem="uYB-Bo-FNY" firstAttribute="leading" secondItem="bqc-y5-rJy" secondAttribute="trailing" id="iay-Kj-hb4"/>
+                                        <constraint firstItem="NAW-Zo-diw" firstAttribute="leading" secondItem="zUa-eF-5EG" secondAttribute="trailing" constant="15" id="oH3-3o-F7U"/>
+                                        <constraint firstAttribute="bottom" secondItem="uYB-Bo-FNY" secondAttribute="bottom" id="vDf-ZY-2G4"/>
                                         <constraint firstAttribute="bottom" secondItem="SH0-5h-fdH" secondAttribute="bottom" constant="10" id="vEh-xZ-FnQ"/>
-                                        <constraint firstItem="qW0-mE-Qx0" firstAttribute="leading" secondItem="SH0-5h-fdH" secondAttribute="trailing" constant="15" id="xfY-On-JFv"/>
+                                        <constraint firstAttribute="bottom" secondItem="zUa-eF-5EG" secondAttribute="bottom" constant="10" id="vI3-FR-3CS"/>
                                         <constraint firstAttribute="bottom" secondItem="NAW-Zo-diw" secondAttribute="bottom" constant="10" id="zeN-aP-aZ8"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="downloadImageVIew" destination="NAW-Zo-diw" id="Tc7-L0-mP3"/>
+                                    <outlet property="downloadButton" destination="uYB-Bo-FNY" id="Zq2-my-1Mw"/>
+                                    <outlet property="downloadImageView" destination="NAW-Zo-diw" id="IWR-MK-pWJ"/>
+                                    <outlet property="downloadProgressView" destination="uXp-4d-XnI" id="eAA-Ma-sH9"/>
                                     <outlet property="identImageView" destination="SH0-5h-fdH" id="kSv-Rh-iVd"/>
-                                    <outlet property="regionNameLabel" destination="qW0-mE-Qx0" id="3JG-Ah-I7d"/>
+                                    <outlet property="regionNameLabel" destination="bqc-y5-rJy" id="rrd-a6-IJa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -70,10 +94,11 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="msz-P8-kBT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="900" y="-27"/>
+            <point key="canvasLocation" x="900" y="-27.464788732394368"/>
         </scene>
     </scenes>
     <resources>
+        <image name="ic_custom_dowload" width="30" height="30"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

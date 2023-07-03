@@ -12,6 +12,9 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.identImageView.image = nil;
+    self.textLabel.text = @"";
+    self.downloadProgressView.hidden = true;
 }
 
 - (void)setLabel:(NSString *)string {

@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "DownloadMapsTableVC.h"
 #import "DownloadMapsCell.h"
+#import "RegionTableViewModel.h"
 
 #import "XMLParser.h"
 
@@ -34,7 +35,7 @@
     
     [self setupView];
     
-    [self.viewModel fetchData];
+//    [self.viewModel fetchData];
     
 //    XMLParser *parser = [[XMLParser alloc] init];
 //    [parser parseXML];
@@ -69,10 +70,67 @@
     
     // TODO: move to [cell setupWithModel: (DownloadMapsCellModel *)model];
     cell.identImageView.image = [UIImage imageNamed:@"ic_custom_map"];
-    cell.downloadImageVIew.image = [UIImage imageNamed:@"ic_custom_dowload"];
+    Region *cellRegion = self.viewModel.regions[indexPath.section].maps[indexPath.row];
+    if (cellRegion.maps.count > 0 ) {
+        cell.downloadImageView.image = [UIImage imageNamed:@"ic_custom_chevron"];
+        cell.downloadButton.hidden = true;
+        cell.downloadImageView.hidden = false;
+    } else {
+        cell.downloadImageView.hidden = true;
+        cell.downloadButton.hidden = false;
+//        cell.downloadButton.titleLabel.text = @"";
+//        UIImage *buttonBackgroundImage = [UIImage imageNamed:@"ic_custom_dowload"];
+//        buttonBackgroundImage.renderingMode = UIImageRenderingModeAlwaysOriginal;
+//        cell.downloadButton.imageView.image = [UIImage imageNamed:@"ic_custom_dowload"];
+//        [cell.downloadButton setBackgroundImage:[buttonBackgroundImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
+//        [cell.downloadButton setBackgroundImage:[buttonBackgroundImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateHighlighted];
+        
+//        cell.downloadImageView.image = [UIImage imageNamed:@"ic_custom_dowload"];
+    }
+//    cellRegion.maps.count > 0 ?
+//        cell.downloadImageVIew.image = [UIImage imageNamed:@"ic_custom_dowload"]
+//        : cell.downloadImageVIew.image = [UIImage imageNamed:@"ic_custom_dowload"];
+    [cell.downloadProgressView setProgress:0.0];
     [cell setLabel:@"NewCell"];
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // TODO: move to viewModel usinc Router
+    
+    DownloadMapsTableViewController *newVC = [DownloadMapsTableViewController instatiate];
+    RegionTableViewModel *newViewModel = [[RegionTableViewModel alloc] initWithRegions:self.viewModel.regions[indexPath.section].maps[indexPath.row].maps];
+    
+    newVC.viewModel = newViewModel;
+    
+    [self.navigationController pushViewController:newVC animated:false];
+}
+
+- (IBAction)downloadButtonPressed:(id)sender {
+    UIButton *button = (UIButton *)sender;
+    CGPoint buttonPosition = [button convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    DownloadMapsCell *cell = (DownloadMapsCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    cell.downloadProgressView.hidden = false;
+    
+    for (int i = 0; i <= 100; i ++) {
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * 0.25 * NSEC_PER_SEC));
+        __weak typeof(self) weakSelf = self;
+        dispatch_after(popTime, dispatch_get_main_queue(), ^{
+            __strong typeof(self) strongSelf = weakSelf;
+            if (strongSelf) {
+                // Your code to be executed after 1 second
+                [cell.downloadProgressView setProgress:i/100 animated: true];
+                NSLog(@"This is executed 1 second later");
+            }
+        });
+//        dispatch_after([NSDate now] , dispatch_queu, <#^(void)block#>)
+//        dispatch_after(dispatch_time_t when, dispatch_queue_t queue,
+//                dispatch_block_t block);
+//        dispatch_async(dispatch_main(), <#^(void)block#>)
+//        dispatch_main()
+    }
+        
+}
 
 @end

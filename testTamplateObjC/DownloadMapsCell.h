@@ -14,7 +14,9 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *identImageView;
 @property (weak, nonatomic) IBOutlet UILabel *regionNameLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *downloadImageVIew;
+@property (weak, nonatomic) IBOutlet UIImageView *downloadImageView;
+@property (weak, nonatomic) IBOutlet UIProgressView *downloadProgressView;
+@property (weak, nonatomic) IBOutlet UIButton *downloadButton;
 
 - (void)setLabel:(NSString *)string;
 @end
