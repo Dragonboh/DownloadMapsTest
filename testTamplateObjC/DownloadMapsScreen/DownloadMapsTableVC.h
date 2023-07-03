@@ -7,7 +7,6 @@
 
 #import <UIKit/UIKit.h>
 #import "DownloadMapsViewModel.h"
-#import "RegionTableViewModel.h"
 
 @interface DownloadMapsTableViewController : UITableViewController
 

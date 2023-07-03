@@ -6,9 +6,7 @@
 //
 
 #import "SceneDelegate.h"
-#import "ViewController.h"
 #import "DownloadMapsTableVC.h"
-#import "RegionTableViewModel.h"
 #import "MapsFileManager.h"
 
 @interface SceneDelegate ()

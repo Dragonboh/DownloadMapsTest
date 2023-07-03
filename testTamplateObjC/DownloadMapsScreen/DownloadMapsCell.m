@@ -9,11 +9,7 @@
 #import "DownloadMapsCell.h"
 
 @implementation DownloadMapsCell
-//@property (weak, nonatomic) IBOutlet UIImageView *identImageView;
-//@property (weak, nonatomic) IBOutlet UILabel *regionNameLabel;
-//@property (weak, nonatomic) IBOutlet UIProgressView *downloadProgressView;
-//@property (weak, nonatomic) IBOutlet UIButton *downloadButton;
-//@property (weak, nonatomic) IBOutlet UIImageView *arrowImageView;
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.identImageView.image = nil;

@@ -6,9 +6,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RegionTableViewModel.h"
+#import "RegionMapsViewModel.h"
 
-@implementation RegionTableViewModel
+@implementation RegionMapsViewModel
 
 - (id)initWithRegions:(NSArray *)regions {
     self = [super init];

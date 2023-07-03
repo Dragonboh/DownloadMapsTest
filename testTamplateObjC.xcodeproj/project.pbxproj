@@ -19,10 +19,13 @@
 		12BBB6B02A520733000889D3 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB6AF2A520733000889D3 /* XMLParser.m */; };
 		12BBB6B22A520E27000889D3 /* regions.xml in Resources */ = {isa = PBXBuildFile; fileRef = 12BBB6B12A520E27000889D3 /* regions.xml */; };
 		12BBB6B62A5229B7000889D3 /* DownloadMapsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB6B52A5229B7000889D3 /* DownloadMapsViewModel.m */; };
-		12BBB6BA2A52EAA2000889D3 /* RegionTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB6B92A52EAA2000889D3 /* RegionTableViewModel.m */; };
+		12BBB6BA2A52EAA2000889D3 /* RegionMapsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB6B92A52EAA2000889D3 /* RegionMapsViewModel.m */; };
 		12BBB6BD2A533AF2000889D3 /* MapsDownloadService.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB6BC2A533AF2000889D3 /* MapsDownloadService.m */; };
 		12BBB6C12A534A0F000889D3 /* MapsFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB6C02A534A0F000889D3 /* MapsFileManager.m */; };
 		12BBB6C42A534CC3000889D3 /* DownloadMapCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB6C32A534CC3000889D3 /* DownloadMapCellModel.m */; };
+		12BBB6CB2A536746000889D3 /* RegionMapsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB6CA2A536746000889D3 /* RegionMapsTableVC.m */; };
+		12BBB6CF2A5369C0000889D3 /* RegionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB6CD2A5369C0000889D3 /* RegionTableViewCell.m */; };
+		12BBB6D02A5369C0000889D3 /* RegionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12BBB6CE2A5369C0000889D3 /* RegionTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,14 +50,19 @@
 		12BBB6B12A520E27000889D3 /* regions.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = regions.xml; sourceTree = "<group>"; };
 		12BBB6B42A52297B000889D3 /* DownloadMapsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadMapsViewModel.h; sourceTree = "<group>"; };
 		12BBB6B52A5229B7000889D3 /* DownloadMapsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadMapsViewModel.m; sourceTree = "<group>"; };
-		12BBB6B82A52EA3B000889D3 /* RegionTableViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegionTableViewModel.h; sourceTree = "<group>"; };
-		12BBB6B92A52EAA2000889D3 /* RegionTableViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegionTableViewModel.m; sourceTree = "<group>"; };
+		12BBB6B82A52EA3B000889D3 /* RegionMapsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegionMapsViewModel.h; sourceTree = "<group>"; };
+		12BBB6B92A52EAA2000889D3 /* RegionMapsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegionMapsViewModel.m; sourceTree = "<group>"; };
 		12BBB6BB2A533AE0000889D3 /* MapsDownloadService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapsDownloadService.h; sourceTree = "<group>"; };
 		12BBB6BC2A533AF2000889D3 /* MapsDownloadService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapsDownloadService.m; sourceTree = "<group>"; };
 		12BBB6BF2A5349CD000889D3 /* MapsFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapsFileManager.h; sourceTree = "<group>"; };
 		12BBB6C02A534A0F000889D3 /* MapsFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapsFileManager.m; sourceTree = "<group>"; };
 		12BBB6C22A534C7F000889D3 /* DownloadMapCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadMapCellModel.h; sourceTree = "<group>"; };
 		12BBB6C32A534CC3000889D3 /* DownloadMapCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadMapCellModel.m; sourceTree = "<group>"; };
+		12BBB6C92A53670C000889D3 /* RegionMapsTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegionMapsTableVC.h; sourceTree = "<group>"; };
+		12BBB6CA2A536746000889D3 /* RegionMapsTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegionMapsTableVC.m; sourceTree = "<group>"; };
+		12BBB6CC2A5369C0000889D3 /* RegionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegionTableViewCell.h; sourceTree = "<group>"; };
+		12BBB6CD2A5369C0000889D3 /* RegionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegionTableViewCell.m; sourceTree = "<group>"; };
+		12BBB6CE2A5369C0000889D3 /* RegionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegionTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +95,7 @@
 		128589662A4C626400B550A1 /* testTamplateObjC */ = {
 			isa = PBXGroup;
 			children = (
+				12BBB6C82A5366F3000889D3 /* RegionMapsScreen */,
 				12BBB6C72A5365F3000889D3 /* DownloadMapsScreen */,
 				12BBB6B72A52C552000889D3 /* Resources */,
 				12BBB6AD2A520661000889D3 /* Utilities */,
@@ -97,8 +106,9 @@
 				1285896B2A4C626400B550A1 /* SceneDelegate.m */,
 				128589792A4C626700B550A1 /* main.m */,
 				128589782A4C626700B550A1 /* Info.plist */,
-				12BBB6B82A52EA3B000889D3 /* RegionTableViewModel.h */,
-				12BBB6B92A52EAA2000889D3 /* RegionTableViewModel.m */,
+				12BBB6CC2A5369C0000889D3 /* RegionTableViewCell.h */,
+				12BBB6CD2A5369C0000889D3 /* RegionTableViewCell.m */,
+				12BBB6CE2A5369C0000889D3 /* RegionTableViewCell.xib */,
 			);
 			path = testTamplateObjC;
 			sourceTree = "<group>";
@@ -149,6 +159,17 @@
 				12BBB6B52A5229B7000889D3 /* DownloadMapsViewModel.m */,
 			);
 			path = DownloadMapsScreen;
+			sourceTree = "<group>";
+		};
+		12BBB6C82A5366F3000889D3 /* RegionMapsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				12BBB6C92A53670C000889D3 /* RegionMapsTableVC.h */,
+				12BBB6CA2A536746000889D3 /* RegionMapsTableVC.m */,
+				12BBB6B82A52EA3B000889D3 /* RegionMapsViewModel.h */,
+				12BBB6B92A52EAA2000889D3 /* RegionMapsViewModel.m */,
+			);
+			path = RegionMapsScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				128589772A4C626700B550A1 /* LaunchScreen.storyboard in Resources */,
+				12BBB6D02A5369C0000889D3 /* RegionTableViewCell.xib in Resources */,
 				12BBB6B22A520E27000889D3 /* regions.xml in Resources */,
 				128589742A4C626700B550A1 /* Assets.xcassets in Resources */,
 				128589722A4C626400B550A1 /* Main.storyboard in Resources */,
@@ -230,8 +252,10 @@
 				1285897A2A4C626700B550A1 /* main.m in Sources */,
 				1285896C2A4C626400B550A1 /* SceneDelegate.m in Sources */,
 				12BBB6B02A520733000889D3 /* XMLParser.m in Sources */,
+				12BBB6CB2A536746000889D3 /* RegionMapsTableVC.m in Sources */,
 				12BBB6C42A534CC3000889D3 /* DownloadMapCellModel.m in Sources */,
-				12BBB6BA2A52EAA2000889D3 /* RegionTableViewModel.m in Sources */,
+				12BBB6BA2A52EAA2000889D3 /* RegionMapsViewModel.m in Sources */,
+				12BBB6CF2A5369C0000889D3 /* RegionTableViewCell.m in Sources */,
 				12BBB6AC2A5205C9000889D3 /* Region.m in Sources */,
 				12BBB6C12A534A0F000889D3 /* MapsFileManager.m in Sources */,
 			);

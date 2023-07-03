@@ -8,8 +8,6 @@
 #import <Foundation/Foundation.h>
 #import "DownloadMapsTableVC.h"
 #import "DownloadMapsCell.h"
-#import "RegionTableViewModel.h"
-
 #import "XMLParser.h"
 
 @interface DownloadMapsTableViewController ()

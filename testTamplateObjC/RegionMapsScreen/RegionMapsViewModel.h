@@ -5,16 +5,16 @@
 //  Created by Bogdan Pankevych on 03.07.2023.
 //
 
-#ifndef RegionTableViewModel_h
-#define RegionTableViewModel_h
+#ifndef RegionMapsViewModel_h
+#define RegionMapsViewModel_h
 
 #import "Region.h"
 
-@interface RegionTableViewModel : NSObject
+@interface RegionMapsViewModel : NSObject
 
 @property (nonatomic, copy) NSArray<Region *> *regions;
 
-- (id) initWithRegions: (NSArray *)regions;
+- (id)initWithRegions:(NSArray *)regions;
 
 @end
-#endif /* RegionTableViewModel_h */
+#endif /* RegionMapsViewModel_h */
