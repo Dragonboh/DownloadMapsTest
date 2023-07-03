@@ -21,6 +21,7 @@
 		12BBB6B02A520733000889D3 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB6AF2A520733000889D3 /* XMLParser.m */; };
 		12BBB6B22A520E27000889D3 /* regions.xml in Resources */ = {isa = PBXBuildFile; fileRef = 12BBB6B12A520E27000889D3 /* regions.xml */; };
 		12BBB6B62A5229B7000889D3 /* DownloadMapsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB6B52A5229B7000889D3 /* DownloadMapsViewModel.m */; };
+		12BBB6BA2A52EAA2000889D3 /* RegionTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB6B92A52EAA2000889D3 /* RegionTableViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,8 @@
 		12BBB6B12A520E27000889D3 /* regions.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = regions.xml; sourceTree = "<group>"; };
 		12BBB6B42A52297B000889D3 /* DownloadMapsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadMapsViewModel.h; sourceTree = "<group>"; };
 		12BBB6B52A5229B7000889D3 /* DownloadMapsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadMapsViewModel.m; sourceTree = "<group>"; };
+		12BBB6B82A52EA3B000889D3 /* RegionTableViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegionTableViewModel.h; sourceTree = "<group>"; };
+		12BBB6B92A52EAA2000889D3 /* RegionTableViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegionTableViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +103,8 @@
 				12BBB67F2A51A502000889D3 /* DownloadMapsCell.m */,
 				12BBB6B42A52297B000889D3 /* DownloadMapsViewModel.h */,
 				12BBB6B52A5229B7000889D3 /* DownloadMapsViewModel.m */,
+				12BBB6B82A52EA3B000889D3 /* RegionTableViewModel.h */,
+				12BBB6B92A52EAA2000889D3 /* RegionTableViewModel.m */,
 			);
 			path = testTamplateObjC;
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 				1285896C2A4C626400B550A1 /* SceneDelegate.m in Sources */,
 				128589CC2A50626B00B550A1 /* Rectangle.m in Sources */,
 				12BBB6B02A520733000889D3 /* XMLParser.m in Sources */,
+				12BBB6BA2A52EAA2000889D3 /* RegionTableViewModel.m in Sources */,
 				12BBB6AC2A5205C9000889D3 /* Region.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
