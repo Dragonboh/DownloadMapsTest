@@ -8,6 +8,7 @@
 #import "SceneDelegate.h"
 #import "ViewController.h"
 #import "DownloadMapsTableVC.h"
+#import "RegionTableViewModel.h"
 
 @interface SceneDelegate ()
 
@@ -21,13 +22,14 @@
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     
-//    UIViewController *rootVC = ViewController.new;
-    
     // TODO: Move this to Router
     DownloadMapsTableViewController *rootVC = DownloadMapsTableViewController.instatiate;
     XMLParser *parser = [[XMLParser alloc] init];
-    DownloadMapsViewModel *viewModel = [[DownloadMapsViewModel alloc] initWithParser:parser];
-    rootVC.viewModel = viewModel;
+    NSArray *regions = [parser parseXML];
+    RegionTableViewModel *newViewModel = [[RegionTableViewModel alloc] initWithRegions:regions];
+    
+//    DownloadMapsViewModel *viewModel = [[DownloadMapsViewModel alloc] initWithParser:parser];
+    rootVC.viewModel = newViewModel;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:rootVC];
     
 //    UIWindowScene *winScene = [[UIWindowScene alloc] initWithSession:session connectionOptions:connectionOptions];

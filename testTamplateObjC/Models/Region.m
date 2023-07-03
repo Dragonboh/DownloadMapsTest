@@ -9,7 +9,6 @@
 #import "Region.h"
 
 @implementation Region
-//@synthesize name;
 
 - (id)initWithName:(NSString *)name {
     self = [super init];

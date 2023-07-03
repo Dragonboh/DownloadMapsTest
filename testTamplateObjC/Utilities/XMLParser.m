@@ -11,9 +11,7 @@
 @interface XMLParser ()
 
 @property NSXMLParser *parser;
-
 @property NSString *element;
-
 @property Region *currentRegion;
 @property NSMutableArray *arr;
 @property NSMutableArray<Region *> *arr2;
@@ -42,11 +40,8 @@ didStartElement: (NSString *)elementName
     attributes: (NSDictionary<NSString *,NSString *> *)attributeDict {
     if ([elementName isEqualToString:@"region"]) {
         self.currentRegion = [[Region alloc] initWithName:[attributeDict objectForKey:@"name"]];
-//        self.currentRegion.name = [attributeDict objectForKey:@"name"];
         [self.arr2 addObject:self.currentRegion];
     }
-    
-    NSLog(@"blablabla");
 }
 
 - (void)parser:(NSXMLParser *)parser
@@ -60,12 +55,10 @@ didStartElement: (NSString *)elementName
             [self.arr2 removeLastObject];
             [[self.arr2 lastObject].maps addObject:reg];
         } else {
-            NSLog(@"blablabla");
             [self.arr addObject:self.arr2.firstObject];
             [self.arr2 removeAllObjects];
             self.currentRegion = nil;
         }
-        NSLog(@"blablabla");
     }
 }
 
