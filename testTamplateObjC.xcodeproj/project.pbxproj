@@ -93,6 +93,7 @@
 		128589662A4C626400B550A1 /* testTamplateObjC */ = {
 			isa = PBXGroup;
 			children = (
+				12BBB6C72A5365F3000889D3 /* DownloadMapsScreen */,
 				12BBB6B72A52C552000889D3 /* Resources */,
 				12BBB6AD2A520661000889D3 /* Utilities */,
 				12BBB6A92A51B8D8000889D3 /* Models */,
@@ -106,12 +107,6 @@
 				128589782A4C626700B550A1 /* Info.plist */,
 				128589CA2A50616700B550A1 /* Rectangle.h */,
 				128589CB2A50626B00B550A1 /* Rectangle.m */,
-				12BBB6782A519631000889D3 /* DownloadMapsTableVC.h */,
-				12BBB6762A51961C000889D3 /* DownloadMapsTableVC.m */,
-				12BBB67E2A51A4E2000889D3 /* DownloadMapsCell.h */,
-				12BBB67F2A51A502000889D3 /* DownloadMapsCell.m */,
-				12BBB6B42A52297B000889D3 /* DownloadMapsViewModel.h */,
-				12BBB6B52A5229B7000889D3 /* DownloadMapsViewModel.m */,
 				12BBB6B82A52EA3B000889D3 /* RegionTableViewModel.h */,
 				12BBB6B92A52EAA2000889D3 /* RegionTableViewModel.m */,
 			);
@@ -151,6 +146,19 @@
 				12BBB6B12A520E27000889D3 /* regions.xml */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		12BBB6C72A5365F3000889D3 /* DownloadMapsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				12BBB6782A519631000889D3 /* DownloadMapsTableVC.h */,
+				12BBB6762A51961C000889D3 /* DownloadMapsTableVC.m */,
+				12BBB67E2A51A4E2000889D3 /* DownloadMapsCell.h */,
+				12BBB67F2A51A502000889D3 /* DownloadMapsCell.m */,
+				12BBB6B42A52297B000889D3 /* DownloadMapsViewModel.h */,
+				12BBB6B52A5229B7000889D3 /* DownloadMapsViewModel.m */,
+			);
+			path = DownloadMapsScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
