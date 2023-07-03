@@ -29,7 +29,7 @@
                                                 <constraint firstAttribute="width" constant="40" id="nGq-Wv-tU5"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NAW-Zo-diw">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_custom_chevron" translatesAutoresizingMaskIntoConstraints="NO" id="NAW-Zo-diw">
                                             <rect key="frame" x="338" y="10" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="IgV-tp-v1X"/>
@@ -77,9 +77,10 @@
                                         <constraint firstAttribute="bottom" secondItem="NAW-Zo-diw" secondAttribute="bottom" constant="10" id="zeN-aP-aZ8"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <inset key="separatorInset" minX="70" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
+                                    <outlet property="arrowImageView" destination="NAW-Zo-diw" id="QSx-Q2-eXb"/>
                                     <outlet property="downloadButton" destination="uYB-Bo-FNY" id="Zq2-my-1Mw"/>
-                                    <outlet property="downloadImageView" destination="NAW-Zo-diw" id="IWR-MK-pWJ"/>
                                     <outlet property="downloadProgressView" destination="uXp-4d-XnI" id="eAA-Ma-sH9"/>
                                     <outlet property="identImageView" destination="SH0-5h-fdH" id="kSv-Rh-iVd"/>
                                     <outlet property="regionNameLabel" destination="bqc-y5-rJy" id="rrd-a6-IJa"/>
@@ -98,6 +99,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_custom_chevron" width="30" height="30"/>
         <image name="ic_custom_dowload" width="30" height="30"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

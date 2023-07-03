@@ -22,25 +22,14 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     DownloadMapsTableViewController *controller = (DownloadMapsTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DownloadMapsTableViewController"];
     
-//    storyboard.instantiateViewController(withIdentifier: "EventListViewController") as! EventListViewController
     return controller;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-//    Rectangle* rec = [[Rectangle alloc] init];
-//    [rec setHeight: 10];
-//    NSLog(@"%i", rec.height);
-    
     [self setupView];
     
-//    [self.viewModel fetchData];
-    
-//    XMLParser *parser = [[XMLParser alloc] init];
-//    [parser parseXML];
-    
-//    [self.tableView registerClass:DownloadMapsCell.class forCellReuseIdentifier:@"region123"];
+    [self.viewModel fetchData];
 }
 
 - (void)setupView {
@@ -50,60 +39,36 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.viewModel.regions.count;
+    return self.viewModel.displayModel.allKeys.count;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return self.viewModel.regions[section].name;
+    return self.viewModel.displayModel.allKeys[section];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.viewModel.regions[section].maps.count;
+    NSString *key = self.viewModel.displayModel.allKeys[section];
+    return [self.viewModel.displayModel objectForKey:key].count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DownloadMapsCell *cell = (DownloadMapsCell *)[tableView dequeueReusableCellWithIdentifier:@"region123" forIndexPath:indexPath];
+    NSString *key = self.viewModel.displayModel.allKeys[indexPath.section];
+    DownloadMapCellModel *cellModel = [[self.viewModel.displayModel objectForKey:key] objectAtIndex:indexPath.row];
+    [cell setupCell:cellModel];
     
-    if (cell == nil) {
-        cell = [[DownloadMapsCell alloc] init];
-    }
-    
-    // TODO: move to [cell setupWithModel: (DownloadMapsCellModel *)model];
-    cell.identImageView.image = [UIImage imageNamed:@"ic_custom_map"];
-    Region *cellRegion = self.viewModel.regions[indexPath.section].maps[indexPath.row];
-    if (cellRegion.maps.count > 0 ) {
-        cell.downloadImageView.image = [UIImage imageNamed:@"ic_custom_chevron"];
-        cell.downloadButton.hidden = true;
-        cell.downloadImageView.hidden = false;
-    } else {
-        cell.downloadImageView.hidden = true;
-        cell.downloadButton.hidden = false;
-//        cell.downloadButton.titleLabel.text = @"";
-//        UIImage *buttonBackgroundImage = [UIImage imageNamed:@"ic_custom_dowload"];
-//        buttonBackgroundImage.renderingMode = UIImageRenderingModeAlwaysOriginal;
-//        cell.downloadButton.imageView.image = [UIImage imageNamed:@"ic_custom_dowload"];
-//        [cell.downloadButton setBackgroundImage:[buttonBackgroundImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
-//        [cell.downloadButton setBackgroundImage:[buttonBackgroundImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateHighlighted];
-        
-//        cell.downloadImageView.image = [UIImage imageNamed:@"ic_custom_dowload"];
-    }
-//    cellRegion.maps.count > 0 ?
-//        cell.downloadImageVIew.image = [UIImage imageNamed:@"ic_custom_dowload"]
-//        : cell.downloadImageVIew.image = [UIImage imageNamed:@"ic_custom_dowload"];
-    [cell.downloadProgressView setProgress:0.0];
-    [cell setLabel:@"NewCell"];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // TODO: move to viewModel usinc Router
     
-    DownloadMapsTableViewController *newVC = [DownloadMapsTableViewController instatiate];
-    RegionTableViewModel *newViewModel = [[RegionTableViewModel alloc] initWithRegions:self.viewModel.regions[indexPath.section].maps[indexPath.row].maps];
-    
-    newVC.viewModel = newViewModel;
-    
-    [self.navigationController pushViewController:newVC animated:false];
+//    DownloadMapsTableViewController *newVC = [DownloadMapsTableViewController instatiate];
+//    RegionTableViewModel *newViewModel = [[RegionTableViewModel alloc] initWithRegions:self.viewModel.regions[indexPath.section].regions[indexPath.row].regions];
+//    
+//    newVC.viewModel = newViewModel;
+//    
+//    [self.navigationController pushViewController:newVC animated:false];
 }
 
 - (IBAction)downloadButtonPressed:(id)sender {
@@ -130,7 +95,6 @@
 //        dispatch_async(dispatch_main(), <#^(void)block#>)
 //        dispatch_main()
     }
-        
 }
 
 @end

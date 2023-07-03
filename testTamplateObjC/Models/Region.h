@@ -10,21 +10,28 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, MapType) {
+    continent,
+    map,
+    srtm,
+    hillshade,
+    none
+};
+
 @interface Region : NSObject
 
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, strong) NSMutableArray<Region *> *maps;
 //@property (nonatomic, copy) NSString *type;
+@property BOOL map;
+@property (nonatomic, copy) NSString *translate;
 
-//@property (nonatomic, copy) NSString *translate;
-//
-//@property (nonatomic, copy) NSString *name;
-//@property (nonatomic, copy) NSString *lang;
-//@property (nonatomic, copy) NSString *poly_extract;
-//@property (nonatomic, copy) NSString *inner_download_prefix;
-//@property (nonatomic, copy) NSString *join_map_files;
+@property (nonatomic, strong) NSMutableArray<Region *> *regions;
+//@property MapType type;
 
-- (id)initWithName: (NSString *)name;
+- (id)initWithName:(NSString *)name
+              type:(NSString *)type
+               map:(NSString *)map
+         translate:(NSString *)translate;
 
 @end
 

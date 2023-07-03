@@ -5,16 +5,33 @@
 //  Created by Bogdan Pankevych on 02.07.2023.
 //
 
-#import <Foundation/Foundation.h>
 #import "Region.h"
 
 @implementation Region
 
-- (id)initWithName:(NSString *)name {
+- (id)initWithName:(NSString *)name type:(NSString *)type map:(NSString *)map translate:(NSString *)translate {
     self = [super init];
     if (self) {
         self.name = name;
-        self.maps = [NSMutableArray array];
+        if (type) {
+            if ([type isEqualToString:@"map"]) {
+                self.map = true;
+            } else {
+                self.map = false;
+            }
+        } else {
+            if (map) {
+                self.map = true;
+            } else {
+                if ([map isEqualToString:@"yes"]) {
+                    self.map = true;
+                } else {
+                    self.map = false;
+                }
+            }
+        }
+        
+        self.regions = [NSMutableArray array];
     }
     
     return self;

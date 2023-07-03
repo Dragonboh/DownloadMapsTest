@@ -9,10 +9,11 @@
 #define XMLParser_h
 
 #import <Foundation/Foundation.h>
+#import "Region.h"
 
 @interface XMLParser: NSObject <NSXMLParserDelegate>
 
-- (NSMutableArray *)parseXML;
+- (NSMutableArray<Region *> *)parseXML;
 
 @end
 

@@ -13,7 +13,7 @@
 
 
 //TODO: change to id < @protocol >
-@property (nonatomic, strong) RegionTableViewModel *viewModel;
+@property (nonatomic, strong) DownloadMapsViewModel *viewModel;
 
 + (DownloadMapsTableViewController *)instatiate;
 

@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "DownloadMapsTableVC.h"
 #import "RegionTableViewModel.h"
+#import "MapsFileManager.h"
 
 @interface SceneDelegate ()
 
@@ -25,11 +26,12 @@
     // TODO: Move this to Router
     DownloadMapsTableViewController *rootVC = DownloadMapsTableViewController.instatiate;
     XMLParser *parser = [[XMLParser alloc] init];
-    NSArray *regions = [parser parseXML];
-    RegionTableViewModel *newViewModel = [[RegionTableViewModel alloc] initWithRegions:regions];
+    MapsFileManager *mapsFileManager = [[MapsFileManager alloc] init];
+//    NSArray *regions = [parser parseXML];
+//    RegionTableViewModel *newViewModel = [[RegionTableViewModel alloc] initWithRegions:regions];
     
-//    DownloadMapsViewModel *viewModel = [[DownloadMapsViewModel alloc] initWithParser:parser];
-    rootVC.viewModel = newViewModel;
+    DownloadMapsViewModel *viewModel = [[DownloadMapsViewModel alloc] initWithParser:parser fileManager:mapsFileManager];
+    rootVC.viewModel = viewModel;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:rootVC];
     
 //    UIWindowScene *winScene = [[UIWindowScene alloc] initWithSession:session connectionOptions:connectionOptions];

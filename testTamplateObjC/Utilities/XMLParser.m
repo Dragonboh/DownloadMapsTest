@@ -6,23 +6,22 @@
 //
 
 #import "XMLParser.h"
-#import "Region.h"
 
 @interface XMLParser ()
 
-@property NSXMLParser *parser;
-@property NSString *element;
-@property Region *currentRegion;
-@property NSMutableArray *arr;
-@property NSMutableArray<Region *> *arr2;
+@property (nonatomic, strong) NSXMLParser *parser;
+@property (nonatomic, strong) NSString *element;
+@property (nonatomic, strong) Region *currentRegion;
+@property (nonatomic, strong) NSMutableArray<Region *> *resultArray;
+@property (nonatomic, strong) NSMutableArray<Region *> *tempArray;
 
 @end
 
 @implementation XMLParser
 
-- (NSMutableArray *)parseXML {
-    self.arr = [NSMutableArray array];
-    self.arr2 = [NSMutableArray array];
+- (NSMutableArray<Region *> *)parseXML {
+    self.resultArray = [NSMutableArray array];
+    self.tempArray = [NSMutableArray array];
     
     NSURL *xmlPath = [[NSBundle mainBundle] URLForResource:@"regions" withExtension:@"xml"];
     
@@ -30,7 +29,7 @@
     self.parser.delegate = self;
     [self.parser parse];
     
-    return self.arr;
+    return self.resultArray;
 }
 
 - (void)parser: (NSXMLParser *)parser
@@ -39,8 +38,11 @@ didStartElement: (NSString *)elementName
  qualifiedName: (NSString *)qName
     attributes: (NSDictionary<NSString *,NSString *> *)attributeDict {
     if ([elementName isEqualToString:@"region"]) {
-        self.currentRegion = [[Region alloc] initWithName:[attributeDict objectForKey:@"name"]];
-        [self.arr2 addObject:self.currentRegion];
+        self.currentRegion = [[Region alloc] initWithName: [attributeDict objectForKey:@"name"]
+                                                     type: [attributeDict objectForKey:@"type"]
+                                                      map: [attributeDict objectForKey:@"map"]
+                                                translate: [attributeDict objectForKey:@"translate"]];
+        [self.tempArray addObject:self.currentRegion];
     }
 }
 
@@ -50,13 +52,13 @@ didStartElement: (NSString *)elementName
  qualifiedName:(NSString *)qName {
     
     if (self.currentRegion) {
-        if (self.arr2.count > 1) {
-            Region *reg = [self.arr2 lastObject];
-            [self.arr2 removeLastObject];
-            [[self.arr2 lastObject].maps addObject:reg];
+        if (self.tempArray.count > 1) {
+            Region *reg = [self.tempArray lastObject];
+            [self.tempArray removeLastObject];
+            [[self.tempArray lastObject].regions addObject:reg];
         } else {
-            [self.arr addObject:self.arr2.firstObject];
-            [self.arr2 removeAllObjects];
+            [self.resultArray addObject:self.tempArray.firstObject];
+            [self.tempArray removeAllObjects];
             self.currentRegion = nil;
         }
     }

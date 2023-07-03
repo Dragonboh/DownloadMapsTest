@@ -10,12 +10,15 @@
 
 #import "XMLParser.h"
 #import "Region.h"
+#import "DownloadMapCellModel.h"
+#import "MapsFileManager.h"
 
 @interface DownloadMapsViewModel : NSObject
 
-@property (nonatomic, strong) NSArray<Region *> *regions;
+@property (nonatomic, strong) NSDictionary<NSString *, NSArray<DownloadMapCellModel *> *> *displayModel;
 
-- (id)initWithParser: (XMLParser *)parser;
+- (id)initWithParser: (XMLParser *)parser
+         fileManager: (MapsFileManager *)fileManager;
 
 - (void)fetchData;
 

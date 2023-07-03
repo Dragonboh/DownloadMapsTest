@@ -22,6 +22,9 @@
 		12BBB6B22A520E27000889D3 /* regions.xml in Resources */ = {isa = PBXBuildFile; fileRef = 12BBB6B12A520E27000889D3 /* regions.xml */; };
 		12BBB6B62A5229B7000889D3 /* DownloadMapsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB6B52A5229B7000889D3 /* DownloadMapsViewModel.m */; };
 		12BBB6BA2A52EAA2000889D3 /* RegionTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB6B92A52EAA2000889D3 /* RegionTableViewModel.m */; };
+		12BBB6BD2A533AF2000889D3 /* MapsDownloadService.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB6BC2A533AF2000889D3 /* MapsDownloadService.m */; };
+		12BBB6C12A534A0F000889D3 /* MapsFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB6C02A534A0F000889D3 /* MapsFileManager.m */; };
+		12BBB6C42A534CC3000889D3 /* DownloadMapCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB6C32A534CC3000889D3 /* DownloadMapCellModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +55,12 @@
 		12BBB6B52A5229B7000889D3 /* DownloadMapsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadMapsViewModel.m; sourceTree = "<group>"; };
 		12BBB6B82A52EA3B000889D3 /* RegionTableViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegionTableViewModel.h; sourceTree = "<group>"; };
 		12BBB6B92A52EAA2000889D3 /* RegionTableViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegionTableViewModel.m; sourceTree = "<group>"; };
+		12BBB6BB2A533AE0000889D3 /* MapsDownloadService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapsDownloadService.h; sourceTree = "<group>"; };
+		12BBB6BC2A533AF2000889D3 /* MapsDownloadService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapsDownloadService.m; sourceTree = "<group>"; };
+		12BBB6BF2A5349CD000889D3 /* MapsFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapsFileManager.h; sourceTree = "<group>"; };
+		12BBB6C02A534A0F000889D3 /* MapsFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapsFileManager.m; sourceTree = "<group>"; };
+		12BBB6C22A534C7F000889D3 /* DownloadMapCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadMapCellModel.h; sourceTree = "<group>"; };
+		12BBB6C32A534CC3000889D3 /* DownloadMapCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadMapCellModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +123,8 @@
 			children = (
 				12BBB6AA2A52025C000889D3 /* Region.h */,
 				12BBB6AB2A5205C9000889D3 /* Region.m */,
+				12BBB6C22A534C7F000889D3 /* DownloadMapCellModel.h */,
+				12BBB6C32A534CC3000889D3 /* DownloadMapCellModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -123,6 +134,10 @@
 			children = (
 				12BBB6AE2A5206A4000889D3 /* XMLParser.h */,
 				12BBB6AF2A520733000889D3 /* XMLParser.m */,
+				12BBB6BB2A533AE0000889D3 /* MapsDownloadService.h */,
+				12BBB6BC2A533AF2000889D3 /* MapsDownloadService.m */,
+				12BBB6BF2A5349CD000889D3 /* MapsFileManager.h */,
+				12BBB6C02A534A0F000889D3 /* MapsFileManager.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -211,6 +226,7 @@
 			files = (
 				12BBB6802A51A502000889D3 /* DownloadMapsCell.m in Sources */,
 				12BBB6B62A5229B7000889D3 /* DownloadMapsViewModel.m in Sources */,
+				12BBB6BD2A533AF2000889D3 /* MapsDownloadService.m in Sources */,
 				1285896F2A4C626400B550A1 /* ViewController.m in Sources */,
 				128589692A4C626400B550A1 /* AppDelegate.m in Sources */,
 				12BBB6772A51961C000889D3 /* DownloadMapsTableVC.m in Sources */,
@@ -218,8 +234,10 @@
 				1285896C2A4C626400B550A1 /* SceneDelegate.m in Sources */,
 				128589CC2A50626B00B550A1 /* Rectangle.m in Sources */,
 				12BBB6B02A520733000889D3 /* XMLParser.m in Sources */,
+				12BBB6C42A534CC3000889D3 /* DownloadMapCellModel.m in Sources */,
 				12BBB6BA2A52EAA2000889D3 /* RegionTableViewModel.m in Sources */,
 				12BBB6AC2A5205C9000889D3 /* Region.m in Sources */,
+				12BBB6C12A534A0F000889D3 /* MapsFileManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
