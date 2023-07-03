@@ -10,6 +10,10 @@
 #import "DownloadMapsCell.h"
 #import "XMLParser.h"
 
+// TODO: move this to Router (Coordinator) after finishing downloading functionality
+#import "RegionMapsTableVC.h"
+#import "RegionMapsViewModel.h"
+
 @interface DownloadMapsTableViewController ()
 
 @end
@@ -17,7 +21,7 @@
 @implementation DownloadMapsTableViewController
 
 + (DownloadMapsTableViewController *)instatiate {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     DownloadMapsTableViewController *controller = (DownloadMapsTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DownloadMapsTableViewController"];
     
     return controller;
@@ -26,11 +30,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupView];
-    
     [self.viewModel fetchData];
 }
 
 - (void)setupView {
+    UINib *nib = [UINib nibWithNibName:@"RegionTableViewCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"RegionTableViewCell"];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     self.navigationItem.title = @"Download Maps";
     self.navigationController.navigationBar.prefersLargeTitles = YES;
     self.navigationController.navigationBar.backgroundColor = [UIColor colorNamed:@"navBarColor"];
@@ -50,7 +58,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    DownloadMapsCell *cell = (DownloadMapsCell *)[tableView dequeueReusableCellWithIdentifier:@"region123" forIndexPath:indexPath];
+    DownloadMapsCell *cell = (DownloadMapsCell *)[tableView dequeueReusableCellWithIdentifier:@"RegionTableViewCell" forIndexPath:indexPath];
     NSString *key = self.viewModel.displayModel.allKeys[indexPath.section];
     DownloadMapCellModel *cellModel = [[self.viewModel.displayModel objectForKey:key] objectAtIndex:indexPath.row];
     [cell setupCell:cellModel];
@@ -59,14 +67,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // TODO: move to viewModel usinc Router
-    
-//    DownloadMapsTableViewController *newVC = [DownloadMapsTableViewController instatiate];
-//    RegionTableViewModel *newViewModel = [[RegionTableViewModel alloc] initWithRegions:self.viewModel.regions[indexPath.section].regions[indexPath.row].regions];
-//    
-//    newVC.viewModel = newViewModel;
-//    
-//    [self.navigationController pushViewController:newVC animated:false];
+    [self.viewModel didSelectRow:indexPath.row];
 }
 
 - (IBAction)downloadButtonPressed:(id)sender {

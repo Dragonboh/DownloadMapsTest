@@ -22,20 +22,9 @@
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     
     // TODO: Move this to Router
-    DownloadMapsTableViewController *rootVC = DownloadMapsTableViewController.instatiate;
-    XMLParser *parser = [[XMLParser alloc] init];
-    MapsFileManager *mapsFileManager = [[MapsFileManager alloc] init];
-//    NSArray *regions = [parser parseXML];
-//    RegionTableViewModel *newViewModel = [[RegionTableViewModel alloc] initWithRegions:regions];
-    
-    DownloadMapsViewModel *viewModel = [[DownloadMapsViewModel alloc] initWithParser:parser fileManager:mapsFileManager];
-    rootVC.viewModel = viewModel;
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:rootVC];
-    
-//    UIWindowScene *winScene = [[UIWindowScene alloc] initWithSession:session connectionOptions:connectionOptions];
     self.window = [[UIWindow alloc] initWithWindowScene:(UIWindowScene *)scene];
-    self.window.rootViewController = nav;
-    [self.window makeKeyAndVisible];
+    self.appCoordinator = [[AppCoordinator alloc] initWithWindow:self.window];
+    [self.appCoordinator start];
 }
 
 

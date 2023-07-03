@@ -12,15 +12,20 @@
 #import "Region.h"
 #import "DownloadMapCellModel.h"
 #import "MapsFileManager.h"
+#import "AppCoordinator.h"
 
 @interface DownloadMapsViewModel : NSObject
 
-@property (nonatomic, strong) NSDictionary<NSString *, NSArray<DownloadMapCellModel *> *> *displayModel;
+@property (strong, nonatomic) NSDictionary<NSString *, NSArray<DownloadMapCellModel *> *> *displayModel;
+@property (weak, nonatomic) AppCoordinator *coordinator;
 
 - (id)initWithParser: (XMLParser *)parser
          fileManager: (MapsFileManager *)fileManager;
 
 - (void)fetchData;
+
+
+- (void)didSelectRow:(NSInteger)row;
 
 @end
 

@@ -26,6 +26,7 @@
 		12BBB6CB2A536746000889D3 /* RegionMapsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB6CA2A536746000889D3 /* RegionMapsTableVC.m */; };
 		12BBB6CF2A5369C0000889D3 /* RegionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB6CD2A5369C0000889D3 /* RegionTableViewCell.m */; };
 		12BBB6D02A5369C0000889D3 /* RegionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12BBB6CE2A5369C0000889D3 /* RegionTableViewCell.xib */; };
+		12BBB6D42A537172000889D3 /* AppCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB6D32A537172000889D3 /* AppCoordinator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,8 @@
 		12BBB6CC2A5369C0000889D3 /* RegionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegionTableViewCell.h; sourceTree = "<group>"; };
 		12BBB6CD2A5369C0000889D3 /* RegionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegionTableViewCell.m; sourceTree = "<group>"; };
 		12BBB6CE2A5369C0000889D3 /* RegionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegionTableViewCell.xib; sourceTree = "<group>"; };
+		12BBB6D22A537172000889D3 /* AppCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppCoordinator.h; sourceTree = "<group>"; };
+		12BBB6D32A537172000889D3 /* AppCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppCoordinator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,7 @@
 		128589662A4C626400B550A1 /* testTamplateObjC */ = {
 			isa = PBXGroup;
 			children = (
+				12BBB6D12A53714A000889D3 /* Coordinator */,
 				12BBB6C82A5366F3000889D3 /* RegionMapsScreen */,
 				12BBB6C72A5365F3000889D3 /* DownloadMapsScreen */,
 				12BBB6B72A52C552000889D3 /* Resources */,
@@ -170,6 +174,15 @@
 				12BBB6B92A52EAA2000889D3 /* RegionMapsViewModel.m */,
 			);
 			path = RegionMapsScreen;
+			sourceTree = "<group>";
+		};
+		12BBB6D12A53714A000889D3 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				12BBB6D22A537172000889D3 /* AppCoordinator.h */,
+				12BBB6D32A537172000889D3 /* AppCoordinator.m */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +269,7 @@
 				12BBB6C42A534CC3000889D3 /* DownloadMapCellModel.m in Sources */,
 				12BBB6BA2A52EAA2000889D3 /* RegionMapsViewModel.m in Sources */,
 				12BBB6CF2A5369C0000889D3 /* RegionTableViewCell.m in Sources */,
+				12BBB6D42A537172000889D3 /* AppCoordinator.m in Sources */,
 				12BBB6AC2A5205C9000889D3 /* Region.m in Sources */,
 				12BBB6C12A534A0F000889D3 /* MapsFileManager.m in Sources */,
 			);

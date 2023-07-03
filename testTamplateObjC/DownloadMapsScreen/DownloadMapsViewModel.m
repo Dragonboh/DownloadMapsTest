@@ -14,7 +14,7 @@
 @property (strong, nonatomic) XMLParser *parser;
 @property (strong, nonatomic) MapsDownloadService *downloadService;
 @property (strong, nonatomic) MapsFileManager *fileManager;
-@property (strong, nonatomic) NSArray<Region *> *regions;
+@property (strong, nonatomic) Region *region;
 
 @end
 
@@ -33,10 +33,10 @@
 
 - (void)fetchData {
     // I took regions inside Europe for better visualisation on TableView
-    self.regions = [self.parser parseXML].firstObject.regions;
+    self.region = [self.parser parseXML].firstObject;
     NSMutableArray *cellModels = [NSMutableArray array];
     
-    for (Region *reg in self.regions) {
+    for (Region *reg in self.region.regions) {
         BOOL hasDownloadedMap = [self.fileManager hasDownloadedMapWithName:reg.name];
         BOOL hasRegions = reg.regions.count > 0 ? true : false;
         DownloadMapCellModel *cellModel = [[DownloadMapCellModel alloc] initWithName: reg.name
@@ -46,6 +46,11 @@
     }
     
     self.displayModel = [NSDictionary dictionaryWithObjectsAndKeys:cellModels, @"EUROPE", nil];
+}
+
+- (void)didSelectRow:(NSInteger)row {
+    Region *region = [self.region.regions objectAtIndex:row];
+    [self.coordinator goToRegion:region];
 }
 
 @end

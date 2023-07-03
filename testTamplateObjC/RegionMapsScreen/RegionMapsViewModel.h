@@ -9,12 +9,16 @@
 #define RegionMapsViewModel_h
 
 #import "Region.h"
+#import "DownloadMapCellModel.h"
+#import "MapsFileManager.h"
 
 @interface RegionMapsViewModel : NSObject
 
-@property (nonatomic, copy) NSArray<Region *> *regions;
+@property (nonatomic, copy) NSArray<DownloadMapCellModel *> *regions;
+@property (nonatomic, copy) NSString *title;
 
-- (id)initWithRegions:(NSArray *)regions;
+- (id)initWithRegion:(Region *)region fileManager:(MapsFileManager *)fileManager;
+- (void)fetchData;
 
 @end
 #endif /* RegionMapsViewModel_h */
