@@ -13,64 +13,43 @@
 @property NSURLSession *session;
 @property (nonatomic, strong)NSOperationQueue *queue;
 @property dispatch_semaphore_t semaphore;
-
-@property NSDictionary<NSUUID *, NSOperation *> *dic;
-
-@property (nonatomic, strong) void (^updateProgress)(float progress);
+@property NSMutableArray<void (^)(float progress)> *arr;
 
 @end
 
-
-//@interface  AsyncOperation: NSOperation <NSURLSessionDownloadDelegate>
-
 @implementation MapsDownloadService
 
-//- (void)dowbloadMapsWithURLString:(NSString *)stringURL {
-//    
-//    NSURL *url = [NSURL URLWithString:stringURL];
-//    self.session = [NSURLSession sessionWithConfiguration:NSURLSessionConfiguration.defaultSessionConfiguration];
-//    //sessionWithConfiguration:NSURLSessionConfiguration.defaultSessionConfiguration delegate:self delegateQueue:nil];
-//    NSMutableArray *arr = [NSMutableArray array];
-//    [arr removeObjectAtIndex:0];
-//    NSOperation *temp = [NSBlockOperation blockOperationWithBlock: ^{
-//        NSURLSessionDownloadTask *downloadTask = [self.session downloadTaskWithURL:url];
-//        downloadTask.delegate = self;
-////        [dateTask resume];
-//    }];
-//}
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.queue = [[NSOperationQueue alloc] init];
+        self.queue.maxConcurrentOperationCount = 1;
+        self.arr = [NSMutableArray array];
+    }
+    return self;
+}
 
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location {
+    [self.arr removeObjectAtIndex:0];
     dispatch_semaphore_signal(self.semaphore);
 }
 
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
     float progress = (float)totalBytesWritten / (float)totalBytesExpectedToWrite;
-//    NSLog(@"%f", progress);
-    self.updateProgress(progress);
-//
-//    [NSNotificationCenter post]
-    // Update progress hud 
+    [self.arr objectAtIndex:0](progress);
 }
 
-- (void)dowbloadMapsWithURLString:(NSString *)stringURL updateProgress:(void (^__strong)(float))updateProgress {
-    NSURL *url = [NSURL URLWithString:stringURL];
-    self.queue = [[NSOperationQueue alloc] init];
-    self.updateProgress = updateProgress;
+- (void)dowbloadMapsWithURLString:(NSString *)stringURL
+                        indexPath:(NSIndexPath *)indexPath
+                   updateProgress:(void (^__strong)(float))updateProgress {
+    NSURL *url = [NSURL URLWithString: stringURL];
+    [self.arr addObject:updateProgress];
+    
     [self.queue addOperationWithBlock:^{
-        // Create a semaphore
         self.semaphore = dispatch_semaphore_create(0);
-
-        // Create a URL session
-        NSURLSession *session = [NSURLSession sessionWithConfiguration:NSURLSessionConfiguration.defaultSessionConfiguration delegate:self delegateQueue: self.queue];
-
-        // Create a download task
-        NSLog(@"%@", url);
+        NSURLSession *session = [NSURLSession sessionWithConfiguration:NSURLSessionConfiguration.defaultSessionConfiguration delegate:self delegateQueue: nil];
         NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithURL:url];
-
-        // Start the download task
         [downloadTask resume];
-
-        // Wait for the semaphore to be signaled
         dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
     }];
 }

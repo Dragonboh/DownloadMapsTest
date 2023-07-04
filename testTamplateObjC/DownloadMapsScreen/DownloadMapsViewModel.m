@@ -62,7 +62,9 @@
     NSArray<DownloadMapCellModel *> *cellViewNodels = [self.displayModel objectForKey:@"EUROPE"];
     DownloadMapCellModel *cellToUpdate = [cellViewNodels objectAtIndex:indexPath.row];
     
-    [self.downloadManager dowbloadMapsWithURLString:stringURL updateProgress:^(float progress) {
+    [self.downloadManager dowbloadMapsWithURLString:stringURL
+                                          indexPath:indexPath
+                                     updateProgress:^(float progress) {
         NSLog(@"%f", progress);
         if ((progress - cellToUpdate.progress) > 0.2 || progress == 1) {
             cellToUpdate.progress = progress;

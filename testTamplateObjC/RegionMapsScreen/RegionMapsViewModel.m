@@ -12,13 +12,16 @@
 
 @property (strong, nonatomic) Region *region;
 @property (strong, nonatomic) MapsFileManager *fileManager;
+@property (strong, nonatomic) MapsDownloadService *downloadManager;
 
 @end
 
 @implementation RegionMapsViewModel
 
 - (id)initWithRegion:(Region *)region
-         fileManager:(MapsFileManager *)fileManager {
+         fileManager:(MapsFileManager *)fileManager
+     downloadManager:(MapsDownloadService *)downloadManager {
+    
     self = [super init];
     if (self) {
         self.region = region;
@@ -44,6 +47,23 @@
     self.regions = cellModels;
 }
 
+- (void)downloadButtonPressed:(NSIndexPath *)indexPath {
 
+    NSString *stringURL = @"https://download.osmand.net/download.php?standard=yes&file=France_corse_europe_2.obf.zip";
+//    NSArray<DownloadMapCellModel *> *cellViewNodels = [self.displayModel objectForKey:@"EUROPE"];
+//    DownloadMapCellModel *cellToUpdate = [cellViewNodels objectAtIndex:indexPath.row];
+//    
+//    [self.downloadManager dowbloadMapsWithURLString:stringURL
+//                                          indexPath:indexPath
+//                                     updateProgress:^(float progress) {
+//        NSLog(@"%f", progress);
+//        if ((progress - cellToUpdate.progress) > 0.2 || progress == 1) {
+//            cellToUpdate.progress = progress;
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                self.updateUI(indexPath);
+//            });
+//        }
+//    }];
+}
 
 @end

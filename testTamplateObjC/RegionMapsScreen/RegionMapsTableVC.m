@@ -28,7 +28,7 @@
     [self.tableView registerNib:nib forCellReuseIdentifier:@"RegionTableViewCell"];
 }
 
-- (void)viewWillAppear:(BOOL)animated {\
+- (void)viewWillAppear:(BOOL)animated {
     self.navigationItem.title = self.viewModel.title;
     self.navigationController.navigationBar.prefersLargeTitles = NO;
     self.navigationController.navigationBar.backItem.title = @"";
@@ -41,10 +41,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RegionTableViewCell *cell = (RegionTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"RegionTableViewCell" forIndexPath:indexPath];
     DownloadMapCellModel *cellModel = [self.viewModel.regions objectAtIndex:indexPath.row];
+    cell.delegate = self;
     [cell setupCell:cellModel];
-    
     return cell;
 }
 
+- (void)didTapButtonInCell:(nonnull UIButton *)button {
+    CGPoint buttonPosition = [button convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    [self.viewModel downloadButtonPressed:indexPath];
+}
 
 @end

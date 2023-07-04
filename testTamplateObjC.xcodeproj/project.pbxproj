@@ -26,7 +26,6 @@
 		12BBB6CF2A5369C0000889D3 /* RegionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB6CD2A5369C0000889D3 /* RegionTableViewCell.m */; };
 		12BBB6D02A5369C0000889D3 /* RegionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12BBB6CE2A5369C0000889D3 /* RegionTableViewCell.xib */; };
 		12BBB6D42A537172000889D3 /* AppCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB6D32A537172000889D3 /* AppCoordinator.m */; };
-		12BBB6D72A547AA4000889D3 /* Debouncer.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB6D62A547AA4000889D3 /* Debouncer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,8 +63,6 @@
 		12BBB6CE2A5369C0000889D3 /* RegionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegionTableViewCell.xib; sourceTree = "<group>"; };
 		12BBB6D22A537172000889D3 /* AppCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppCoordinator.h; sourceTree = "<group>"; };
 		12BBB6D32A537172000889D3 /* AppCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppCoordinator.m; sourceTree = "<group>"; };
-		12BBB6D52A547AA4000889D3 /* Debouncer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Debouncer.h; sourceTree = "<group>"; };
-		12BBB6D62A547AA4000889D3 /* Debouncer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Debouncer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,8 +134,6 @@
 				12BBB6BC2A533AF2000889D3 /* MapsDownloadService.m */,
 				12BBB6BF2A5349CD000889D3 /* MapsFileManager.h */,
 				12BBB6C02A534A0F000889D3 /* MapsFileManager.m */,
-				12BBB6D52A547AA4000889D3 /* Debouncer.h */,
-				12BBB6D62A547AA4000889D3 /* Debouncer.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -267,7 +262,6 @@
 				12BBB6CB2A536746000889D3 /* RegionMapsTableVC.m in Sources */,
 				12BBB6C42A534CC3000889D3 /* DownloadMapCellModel.m in Sources */,
 				12BBB6BA2A52EAA2000889D3 /* RegionMapsViewModel.m in Sources */,
-				12BBB6D72A547AA4000889D3 /* Debouncer.m in Sources */,
 				12BBB6CF2A5369C0000889D3 /* RegionTableViewCell.m in Sources */,
 				12BBB6D42A537172000889D3 /* AppCoordinator.m in Sources */,
 				12BBB6AC2A5205C9000889D3 /* Region.m in Sources */,

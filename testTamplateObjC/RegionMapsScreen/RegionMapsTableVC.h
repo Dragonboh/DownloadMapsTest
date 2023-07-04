@@ -10,13 +10,13 @@
 
 #import <UIKit/UIKit.h>
 #import "RegionMapsViewModel.h"
+#import "RegionTableViewCell.h"
 
-@interface RegionMapsTableViewController : UITableViewController
+@interface RegionMapsTableViewController : UITableViewController <CustomTableViewCellDelegate>
 
 @property (nonatomic, strong) RegionMapsViewModel *viewModel;
 
 + (RegionMapsTableViewController *)instatiate;
-
 
 @end
 

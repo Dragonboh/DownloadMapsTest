@@ -10,11 +10,12 @@
 #import <Foundation/Foundation.h>
 
 @interface MapsDownloadService : NSObject <NSURLSessionDownloadDelegate>
-//- (void)dowbloadMapsWithURLString:(NSString *)stringURL;
                    
 - (void)dowbloadMapsWithURLString:(NSString *)stringURL
+                        indexPath:(NSIndexPath *)indexPath
                    updateProgress:(void (^)(float progress))updateProgress;
-                       //completion:(void (^)(NSString *stringURL))completion;
+
+- (instancetype)init;
 
 @end
 

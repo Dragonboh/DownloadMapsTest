@@ -23,5 +23,4 @@
 
 @end
 
-
 #endif /* DownloadMapCellModel_h */
