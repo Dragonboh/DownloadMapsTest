@@ -45,7 +45,7 @@
                                                                     hasDownloadedMap: hasDownloadedMap];
         [cellModels addObject:cellModel];
     }
-    
+    self.regions = cellModels;
     self.displayModel = [NSDictionary dictionaryWithObjectsAndKeys:cellModels, @"EUROPE", nil];
 }
 
@@ -64,10 +64,12 @@
     
     [self.downloadManager dowbloadMapsWithURLString:stringURL updateProgress:^(float progress) {
         NSLog(@"%f", progress);
-        cellToUpdate.progress = progress;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.updateUI(indexPath);
-        });
+        if ((progress - cellToUpdate.progress) > 0.2 || progress == 1) {
+            cellToUpdate.progress = progress;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.updateUI(indexPath);
+            });
+        }
     }]; 
 }
 

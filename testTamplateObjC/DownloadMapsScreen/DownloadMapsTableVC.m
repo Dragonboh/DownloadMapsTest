@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "DownloadMapsTableVC.h"
 #import "XMLParser.h"
+#import "Debouncer.h"
 
 @interface DownloadMapsTableViewController ()
 
@@ -37,6 +38,14 @@
             [strongSelf.tableView reloadRowsAtIndexPaths:@[indexPath]
                                   withRowAnimation:NO];
         }
+
+//        Debouncer *debouncer = [[Debouncer alloc] initWithDelay:0.2 block:^{
+//            if (strongSelf) {
+//                [strongSelf.tableView reloadRowsAtIndexPaths:@[indexPath]
+//                                      withRowAnimation:NO];
+//            }
+//        }];
+//        [debouncer call];
     };
 }
 
@@ -52,23 +61,25 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.viewModel.displayModel.allKeys.count;
+    return 1;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return self.viewModel.displayModel.allKeys[section];
+    return @"EUROPE";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSString *key = self.viewModel.displayModel.allKeys[section];
-    return [self.viewModel.displayModel objectForKey:key].count;
+//    NSString *key = self.viewModel.displayModel.allKeys[section];
+//    return [self.viewModel.displayModel objectForKey:key].count;
+    return self.viewModel.regions.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RegionTableViewCell *cell = (RegionTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"RegionTableViewCell" forIndexPath:indexPath];
     cell.delegate = self;
-    NSString *key = self.viewModel.displayModel.allKeys[indexPath.section];
-    DownloadMapCellModel *cellModel = [[self.viewModel.displayModel objectForKey:key] objectAtIndex:indexPath.row];
+//    NSString *key = self.viewModel.displayModel.allKeys[indexPath.section];
+//    DownloadMapCellModel *cellModel = [[self.viewModel.displayModel objectForKey:key] objectAtIndex:indexPath.row];
+    DownloadMapCellModel *cellModel = [self.viewModel.regions objectAtIndex:indexPath.row];
     [cell setupCell:cellModel];
     
     return cell;

@@ -20,6 +20,7 @@
 @property (strong, nonatomic) NSDictionary<NSString *, NSArray<DownloadMapCellModel *> *> *displayModel;
 @property (weak, nonatomic) AppCoordinator *coordinator;
 @property (nonatomic, strong) void (^updateUI)(NSIndexPath *indexPath);
+@property (nonatomic, strong) NSMutableArray<DownloadMapCellModel *> *regions;
 
 - (instancetype)initWithParser:(XMLParser *)parser
                    fileManager:(MapsFileManager *)fileManager

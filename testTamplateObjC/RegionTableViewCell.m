@@ -21,10 +21,15 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.downloadProgressView.hidden = true;
+}
+
+- (void)prepareForReuse {
+    [super prepareForReuse];
     self.isDownloadedImageView.image = nil;
     self.textLabel.text = @"";
     self.downloadProgressView.hidden = true;
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)setLabel:(NSString *)string {
@@ -32,16 +37,19 @@
 }
 
 - (void)setupCell:(DownloadMapCellModel *)cellModel {
-    NSString *imageName = cellModel.hasDownloadedMap ? @"ic_custom_map_green" : @"ic_custom_map";
-    self.isDownloadedImageView.image = [UIImage imageNamed:imageName];
+//    NSString *imageName = cellModel.hasDownloadedMap ? @"ic_custom_map_green" : @"ic_custom_map";
+    self.isDownloadedImageView.image = [UIImage imageNamed:@"ic_custom_map"];
     self.regionNameLabel.text = cellModel.name;
     self.arrowImageView.hidden = !cellModel.hasRegions;
     self.downloadButton.hidden = cellModel.hasRegions;
+    
     if (cellModel.progress > 0 && cellModel.progress < 1) {
         self.downloadProgressView.progress = cellModel.progress;
         self.downloadProgressView.hidden = false;
-    } else {
+    }
+    if (cellModel.progress == 1) {
         self.downloadProgressView.hidden = true;
+        self.isDownloadedImageView.image = [UIImage imageNamed:@"ic_custom_map_green"];
     }
 }
 
