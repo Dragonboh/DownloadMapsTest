@@ -10,7 +10,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+@protocol CustomTableViewCellDelegate <NSObject>
+
+- (void)didTapButtonInCell:(UIButton *)button;
+
+@end
+
 @interface RegionTableViewCell : UITableViewCell
+
+@property (nonatomic, weak) id<CustomTableViewCellDelegate> delegate;
 
 - (void)setupCell:(DownloadMapCellModel *)cellModel;
 

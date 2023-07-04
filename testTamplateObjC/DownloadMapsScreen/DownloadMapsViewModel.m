@@ -7,12 +7,11 @@
 
 #import <Foundation/Foundation.h>
 #import "DownloadMapsViewModel.h"
-#import "MapsDownloadService.h"
 
 @interface DownloadMapsViewModel ()
 
 @property (strong, nonatomic) XMLParser *parser;
-@property (strong, nonatomic) MapsDownloadService *downloadService;
+@property (strong, nonatomic) MapsDownloadService *downloadManager;
 @property (strong, nonatomic) MapsFileManager *fileManager;
 @property (strong, nonatomic) Region *region;
 
@@ -20,12 +19,14 @@
 
 @implementation DownloadMapsViewModel
 
-- (id)initWithParser:(XMLParser *)parser
-         fileManager:(MapsFileManager *)fileManager {
+- (instancetype)initWithParser:(XMLParser *)parser
+                   fileManager:(MapsFileManager *)fileManager
+               downloadManager:(MapsDownloadService *)downloadmanager {
     self = [super self];
     if (self) {
         self.parser = parser;
         self.fileManager = fileManager;
+        self.downloadManager = downloadmanager;
         self.displayModel = [NSDictionary dictionary];
     }
     return self;
@@ -50,7 +51,24 @@
 
 - (void)didSelectRow:(NSInteger)row {
     Region *region = [self.region.regions objectAtIndex:row];
-    [self.coordinator goToRegion:region];
+    if (region.regions.count > 0) {
+        [self.coordinator goToRegion:region];
+    }
+}
+
+- (void)downloadButtonPressed:(NSIndexPath *)indexPath {
+
+    NSString *stringURL = @"https://download.osmand.net/download.php?standard=yes&file=France_corse_europe_2.obf.zip";
+    NSArray<DownloadMapCellModel *> *cellViewNodels = [self.displayModel objectForKey:@"EUROPE"];
+    DownloadMapCellModel *cellToUpdate = [cellViewNodels objectAtIndex:indexPath.row];
+    
+    [self.downloadManager dowbloadMapsWithURLString:stringURL updateProgress:^(float progress) {
+        NSLog(@"%f", progress);
+        cellToUpdate.progress = progress;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.updateUI(indexPath);
+        });
+    }]; 
 }
 
 @end

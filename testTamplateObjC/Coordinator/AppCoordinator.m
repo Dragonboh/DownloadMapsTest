@@ -8,6 +8,7 @@
 #import "AppCoordinator.h"
 #import "DownloadMapsTableVC.h"
 #import "RegionMapsTableVC.h"
+#import "MapsDownloadService.h"
 
 @interface AppCoordinator ()
 
@@ -29,9 +30,13 @@
 
 - (void)start {
     DownloadMapsTableViewController *rootVC = DownloadMapsTableViewController.instatiate;
+    
     XMLParser *parser = [[XMLParser alloc] init];
     MapsFileManager *mapsFileManager = [[MapsFileManager alloc] init];
-    DownloadMapsViewModel *viewModel = [[DownloadMapsViewModel alloc] initWithParser:parser fileManager:mapsFileManager];
+    MapsDownloadService *downloadManager = [[MapsDownloadService alloc] init];
+    
+    DownloadMapsViewModel *viewModel = [[DownloadMapsViewModel alloc] initWithParser:parser fileManager:mapsFileManager downloadManager:downloadManager];
+    
     viewModel.coordinator = self;
     rootVC.viewModel = viewModel;
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:rootVC];

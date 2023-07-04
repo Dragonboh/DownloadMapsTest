@@ -17,6 +17,7 @@
         self.name = name;
         self.hasRegions = hasRegions;
         self.hasDownloadedMap = hasDownloadedMap;
+        self.progress = 0;
     }
     return self;
 }

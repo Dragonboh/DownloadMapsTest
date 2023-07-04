@@ -7,9 +7,9 @@
 
 #import <UIKit/UIKit.h>
 #import "DownloadMapsViewModel.h"
+#import "RegionTableViewCell.h"
 
-@interface DownloadMapsTableViewController : UITableViewController
-
+@interface DownloadMapsTableViewController : UITableViewController <CustomTableViewCellDelegate>
 
 //TODO: change to id < @protocol >
 @property (nonatomic, strong) DownloadMapsViewModel *viewModel;

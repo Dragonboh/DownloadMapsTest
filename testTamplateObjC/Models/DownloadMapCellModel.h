@@ -15,6 +15,7 @@
 @property BOOL hasDownloadedMap;
 @property (copy, nonatomic) NSString *name;
 @property BOOL hasRegions;
+@property float progress;
 
 - (id)initWithName:(NSString *)name
         hasRegions:(BOOL)hasRegions

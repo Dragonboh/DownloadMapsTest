@@ -15,7 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *arrowImageView;
 @property (weak, nonatomic) IBOutlet UIButton *downloadButton;
 
-
 @end
 
 @implementation RegionTableViewCell
@@ -25,6 +24,7 @@
     self.isDownloadedImageView.image = nil;
     self.textLabel.text = @"";
     self.downloadProgressView.hidden = true;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)setLabel:(NSString *)string {
@@ -37,12 +37,26 @@
     self.regionNameLabel.text = cellModel.name;
     self.arrowImageView.hidden = !cellModel.hasRegions;
     self.downloadButton.hidden = cellModel.hasRegions;
+    if (cellModel.progress > 0 && cellModel.progress < 1) {
+        self.downloadProgressView.progress = cellModel.progress;
+        self.downloadProgressView.hidden = false;
+    } else {
+        self.downloadProgressView.hidden = true;
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (IBAction)downloadMapButtonTapped:(UIButton *)sender {
+    self.downloadProgressView.hidden = false;
+    
+    if ([self.delegate respondsToSelector:@selector(didTapButtonInCell:)]) {
+        [self.delegate didTapButtonInCell:sender];
+    }
 }
 
 @end

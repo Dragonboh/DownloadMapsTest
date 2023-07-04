@@ -14,7 +14,6 @@
 		128589772A4C626700B550A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 128589752A4C626700B550A1 /* LaunchScreen.storyboard */; };
 		1285897A2A4C626700B550A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 128589792A4C626700B550A1 /* main.m */; };
 		12BBB6772A51961C000889D3 /* DownloadMapsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB6762A51961C000889D3 /* DownloadMapsTableVC.m */; };
-		12BBB6802A51A502000889D3 /* DownloadMapsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB67F2A51A502000889D3 /* DownloadMapsCell.m */; };
 		12BBB6AC2A5205C9000889D3 /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB6AB2A5205C9000889D3 /* Region.m */; };
 		12BBB6B02A520733000889D3 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BBB6AF2A520733000889D3 /* XMLParser.m */; };
 		12BBB6B22A520E27000889D3 /* regions.xml in Resources */ = {isa = PBXBuildFile; fileRef = 12BBB6B12A520E27000889D3 /* regions.xml */; };
@@ -42,8 +41,6 @@
 		128589792A4C626700B550A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		12BBB6762A51961C000889D3 /* DownloadMapsTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadMapsTableVC.m; sourceTree = "<group>"; };
 		12BBB6782A519631000889D3 /* DownloadMapsTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadMapsTableVC.h; sourceTree = "<group>"; };
-		12BBB67E2A51A4E2000889D3 /* DownloadMapsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadMapsCell.h; sourceTree = "<group>"; };
-		12BBB67F2A51A502000889D3 /* DownloadMapsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadMapsCell.m; sourceTree = "<group>"; };
 		12BBB6AA2A52025C000889D3 /* Region.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Region.h; sourceTree = "<group>"; };
 		12BBB6AB2A5205C9000889D3 /* Region.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Region.m; sourceTree = "<group>"; };
 		12BBB6AE2A5206A4000889D3 /* XMLParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
@@ -157,8 +154,6 @@
 			children = (
 				12BBB6782A519631000889D3 /* DownloadMapsTableVC.h */,
 				12BBB6762A51961C000889D3 /* DownloadMapsTableVC.m */,
-				12BBB67E2A51A4E2000889D3 /* DownloadMapsCell.h */,
-				12BBB67F2A51A502000889D3 /* DownloadMapsCell.m */,
 				12BBB6B42A52297B000889D3 /* DownloadMapsViewModel.h */,
 				12BBB6B52A5229B7000889D3 /* DownloadMapsViewModel.m */,
 			);
@@ -257,7 +252,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12BBB6802A51A502000889D3 /* DownloadMapsCell.m in Sources */,
 				12BBB6B62A5229B7000889D3 /* DownloadMapsViewModel.m in Sources */,
 				12BBB6BD2A533AF2000889D3 /* MapsDownloadService.m in Sources */,
 				128589692A4C626400B550A1 /* AppDelegate.m in Sources */,

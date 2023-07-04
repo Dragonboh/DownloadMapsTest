@@ -7,12 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "DownloadMapsTableVC.h"
-#import "DownloadMapsCell.h"
 #import "XMLParser.h"
-
-// TODO: move this to Router (Coordinator) after finishing downloading functionality
-#import "RegionMapsTableVC.h"
-#import "RegionMapsViewModel.h"
 
 @interface DownloadMapsTableViewController ()
 
@@ -30,7 +25,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupView];
+    [self setupViewModel];
     [self.viewModel fetchData];
+}
+
+- (void)setupViewModel {
+    __weak typeof(self) weakSelf = self;
+    self.viewModel.updateUI = ^(NSIndexPath *indexPath) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        if (strongSelf) {
+            [strongSelf.tableView reloadRowsAtIndexPaths:@[indexPath]
+                                  withRowAnimation:NO];
+        }
+    };
 }
 
 - (void)setupView {
@@ -58,7 +65,8 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    DownloadMapsCell *cell = (DownloadMapsCell *)[tableView dequeueReusableCellWithIdentifier:@"RegionTableViewCell" forIndexPath:indexPath];
+    RegionTableViewCell *cell = (RegionTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"RegionTableViewCell" forIndexPath:indexPath];
+    cell.delegate = self;
     NSString *key = self.viewModel.displayModel.allKeys[indexPath.section];
     DownloadMapCellModel *cellModel = [[self.viewModel.displayModel objectForKey:key] objectAtIndex:indexPath.row];
     [cell setupCell:cellModel];
@@ -70,30 +78,11 @@
     [self.viewModel didSelectRow:indexPath.row];
 }
 
-- (IBAction)downloadButtonPressed:(id)sender {
+- (void)didTapButtonInCell:(UIButton *)sender; {
     UIButton *button = (UIButton *)sender;
     CGPoint buttonPosition = [button convertPoint:CGPointZero toView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
-    DownloadMapsCell *cell = (DownloadMapsCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-    cell.downloadProgressView.hidden = false;
-    
-    for (int i = 0; i <= 100; i ++) {
-        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * 0.25 * NSEC_PER_SEC));
-        __weak typeof(self) weakSelf = self;
-        dispatch_after(popTime, dispatch_get_main_queue(), ^{
-            __strong typeof(self) strongSelf = weakSelf;
-            if (strongSelf) {
-                // Your code to be executed after 1 second
-                [cell.downloadProgressView setProgress:i/100 animated: true];
-                NSLog(@"This is executed 1 second later");
-            }
-        });
-//        dispatch_after([NSDate now] , dispatch_queu, <#^(void)block#>)
-//        dispatch_after(dispatch_time_t when, dispatch_queue_t queue,
-//                dispatch_block_t block);
-//        dispatch_async(dispatch_main(), <#^(void)block#>)
-//        dispatch_main()
-    }
+    [self.viewModel downloadButtonPressed: indexPath];
 }
 
 @end
