@@ -48,7 +48,7 @@
 - (void)goToRegion:(nonnull Region *)region {
     RegionMapsTableViewController *newVC = [RegionMapsTableViewController instatiate];
     MapsFileManager *mapsFileManager = [[MapsFileManager alloc] init];
-    RegionMapsViewModel *regionMapsViewModel = [[RegionMapsViewModel alloc] initWithRegion:region fileManager:mapsFileManager];
+    RegionMapsViewModel *regionMapsViewModel = [[RegionMapsViewModel alloc] initWithRegion:region fileManager:mapsFileManager downloadManager:self.downloadManager];
     newVC.viewModel = regionMapsViewModel;
     [self.navigationController pushViewController:newVC animated:false];
 }

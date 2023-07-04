@@ -42,13 +42,14 @@
     self.regionNameLabel.text = cellModel.name;
     self.arrowImageView.hidden = !cellModel.hasRegions;
     self.downloadButton.hidden = cellModel.hasRegions;
+    self.downloadProgressView.progress = cellModel.progress;
     
     if (cellModel.progress > 0 && cellModel.progress < 1) {
-        self.downloadProgressView.progress = cellModel.progress;
         self.downloadProgressView.hidden = false;
     }
     if (cellModel.progress == 1) {
         self.downloadProgressView.hidden = true;
+        self.downloadButton.hidden = true;
         self.isDownloadedImageView.image = [UIImage imageNamed:@"ic_custom_map_green"];
     }
 }

@@ -61,6 +61,7 @@
     NSString *stringURL = @"https://download.osmand.net/download.php?standard=yes&file=France_corse_europe_2.obf.zip";
     NSArray<DownloadMapCellModel *> *cellViewNodels = [self.displayModel objectForKey:@"EUROPE"];
     DownloadMapCellModel *cellToUpdate = [cellViewNodels objectAtIndex:indexPath.row];
+    cellToUpdate.progress = 0.001;
     
     [self.downloadManager dowbloadMapsWithURLString:stringURL
                                           indexPath:indexPath
